@@ -1,11 +1,14 @@
 pragma solidity >=0.4.24;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
 
 contract StarNotary is ERC721 {
     struct Star {
         string name;
     }
+
+    string public constant name = 'Nyota';
+    string public constant symbol  = 'NYT';
 
     mapping(uint256 => Star) public tokenIdToStarInfo;
     mapping(uint256 => uint256) public starsForSale;
@@ -44,5 +47,36 @@ contract StarNotary is ERC721 {
         if (msg.value > starCost) {
             msg.sender.transfer(msg.value - starCost);
         }
+    }
+
+    // Function that looks up the star using the token id and returns the name of the star
+    function lookupTokenIdToStarInfo(uint _tokenId)
+        public
+        view
+        returns (string memory)
+    {
+        return tokenIdToStarInfo[_tokenId].name;
+    }
+
+    // Function that allows the exchange of stars
+    function exchangeStars(uint256 _tokenId1, uint256 _tokenId2) public {
+        address owner1 = ownerOf(_tokenId1);
+        address owner2 = ownerOf(_tokenId2);
+
+        require(
+            msg.sender == owner1 || msg.sender == owner2,
+            "You must own the star to exchange it"
+        );
+
+        // use the transferFrom function to transfer the star
+        _transferFrom(owner1, owner2, _tokenId1);
+        _transferFrom(owner2, owner1, _tokenId2);
+    }
+
+    // Function that allows the transfer of stars
+    function transferStar(address _to1, uint256 _tokenId) public {
+        address from = ownerOf(_tokenId);
+        require(from == msg.sender);
+        _transferFrom(from, _to1, _tokenId);
     }
 }
