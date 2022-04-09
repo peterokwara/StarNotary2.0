@@ -101,4 +101,66 @@ describe("The Star Notary v2 contract", () => {
       balanceAfterUser2BuysStar.toString()
     );
   });
+
+  it('should add the token name and token symbol properly ', async () => {
+    let instance = await StarNotary.deployed();
+
+    // Create id
+    let starId = 10;
+
+    // Create a new star
+    await instance.createStar('Crux', starId, { from: accounts[0] });
+
+    // Check if the star name matches the star we just created
+    assert.equal(await instance.tokenIdToStarInfo.call(starId), 'Crux');
+
+    // check the name and symbol
+    assert.equal(await instance.name(), "Nyota");
+    assert.equal(await instance.symbol(), "NYT");
+  });
+
+  it('should enable two users to exchange their stars', async () => {
+    let instance = await StarNotary.deployed();
+
+    // Two accounts
+    let user1 = accounts[0];
+    let user2 = accounts[1];
+
+    // Two id's
+    let starId1 = 7;
+    let starId2 = 8;
+
+
+    // Create the first star and second star
+    await instance.createStar("Cancer", starId1, { from: user1 });
+    await instance.createStar("Leo", starId2, { from: user2 });
+
+    // Users exchange stars
+    await instance.exchangeStars(starId1, starId2);
+
+    // Check if stars have truly been exchanged
+    assert.equal(await instance.ownerOf(starId1), user2);
+    assert.equal(await instance.ownerOf(starId2), user1);
+
+  });
+
+  it('should enable star tokens to be transferable from one person to another', async () => {
+    let instance = await StarNotary.deployed();
+
+    // create two accounts
+    let user1 = accounts[0];
+    let user2 = accounts[1];
+
+    // Set star id
+    let starId = 9;
+
+    // Create a star
+    await instance.createStar("Lyra", starId, { from: user1 });
+
+    // Transfer the star to another account
+    await instance.transferStar(user2, starId);
+
+    // Check if the stars have truly been transfered to the second user
+    assert.equal(await instance.ownerOf(starId), user2);
+  });
 });
