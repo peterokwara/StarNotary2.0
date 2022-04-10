@@ -34,19 +34,47 @@ const App = {
   },
 
   createStar: async function () {
+    // Get the loader
+    const loader = document.getElementsByClassName("loader")[0];
+
     const { createStar } = this.meta.methods;
     const name = document.getElementById("starName").value;
     const id = document.getElementById("starId").value;
-    await createStar(name, id).send({ from: this.account });
+
+    // Activate loader
+    loader.style.display = "block";
+
+    try {
+      await createStar(name, id).send({ from: this.account });
+
+    } catch (error) {
+      console.log(error);
+      // Deactivate loader
+      loader.style.display = "none";
+
+    }
+
+
+    // Deactivate loader
+    loader.style.display = "none";
+
     App.setStatus("New star owner is " + this.account + ".");
   },
 
   lookUpStar: async function () {
+    // Get the loader
+    const loader = document.getElementsByClassName("loader")[0];
+
     const { lookupTokenIdToStarInfo } = this.meta.methods;
 
     const tokenId = document.getElementById("tokenId").value;
+
+    // Activate loader
+    loader.style.display = "block";
     let starName = await lookupTokenIdToStarInfo(tokenId).call();
-    
+
+    // Deactivate loader
+    loader.style.display = "none";
     App.setStatus("The name of the star is " + starName + ".");
   }
 };

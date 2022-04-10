@@ -17,7 +17,7 @@ body {
 body {
     display: grid;
     height: 100vh;
-    grid-template-rows: 100px 1fr 80px;
+    grid-template-rows: 100px 1fr 100px;
     grid-template-areas:
         "h"
         "c"
@@ -60,7 +60,7 @@ form {
     button,
     input,
     textarea {
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     input,
@@ -72,9 +72,25 @@ form {
 
 /* For tablets and desktop */
 @media only screen and (min-width: 600px) {
+    body {
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 20px 1fr 30px;
+        grid-template-areas:
+            "h"
+            "c"
+            "f";
+    }
+
     form {
-        margin-left: 100px;
-        margin-right: 100px;
+        margin-left: 200px;
+        margin-right: 200px;
+
+        input,
+        button {
+            padding: 5px;
+        }
+
     }
 }
 
@@ -89,7 +105,7 @@ form {
     textarea,
     input,
     label {
-        font-size: 20px;
+        font-size: medium;
     }
 
     button,
@@ -120,11 +136,52 @@ form {
     }
 
     textarea {
-        height: 150px;
+        height: 50px;
+    }
+}
+
+.loader {
+    z-index: 1;
+    border: 16px solid #D6B9B0;
+    border-top: 16px solid #C4BAD6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    right: 40%;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 
 
-
 /* For tablets and laptops and desktops */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+    form {
+
+        button,
+        textarea,
+        input,
+        label {
+            font-size: x-small;
+        }
+    }
+
+    h1 {
+        font-size: large;
+    }
+
+    h3 {
+        font-size: smaller;
+    }
+}
