@@ -22,7 +22,7 @@
 A decentralized application that allows people to create a star on the blockchain and fetch the star name based on it's Id.
 
 <p align="center">
-  <img src="./assets/chrome_ODFMadKm4X"/>
+  <img src="./assets/chrome_ODFMadKm4X.gif"/>
 </p>
 
 ### Technical
