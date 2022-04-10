@@ -1,35 +1,3 @@
-# Star Notary v1.0
-
-A non-tokenized version of the Star Notary Smart Contract. Uses the [truffle webpack box](https://trufflesuite.com/boxes/webpack/index.html).
-
-## Running
-
-To run the truffle development enviroment, run:
-
-```console
-truffle develop
-```
-
-To compile the smart contract, within the truffle development environment, run:
-
-```console
-compile
-```
-
-To migrate and create a fresh and clean smart contract session, within the truffle development environment, run:
-
-```console
-migrate --refresh
-```
-
-To run the test cases within the truffle development environment, run:
-
-```console
-test
-```
-
-npm install @openzeppelin/contracts@2.5.1
-
 <p align="center">
   <h3 align="center">Star Notary v2.0</h3>
 
@@ -54,7 +22,7 @@ npm install @openzeppelin/contracts@2.5.1
 A decentralized application that allows people to create a star on the blockchain and fetch the star name based on it's Id.
 
 <p align="center">
-  <img src="./assets/Screenshot 2022-04-10 192936.png"/>
+  <img src="./assets/chrome_ODFMadKm4X"/>
 </p>
 
 ### Technical
@@ -103,6 +71,12 @@ Openzeppelin needs to be installed. This can be done on the **root** of the proj
 npm install @openzeppelin/contracts@2.3.0
 ```
 
+Also install `hdwallet` by running
+
+```console
+npm install @truffle/hdwallet-provider
+```
+
 To run the truffle development enviroment, run:
 
 ```console
@@ -131,15 +105,15 @@ test
 
 I would/ We'd love to have your help in making **{this app (StarNotary v2.0)}** better. The project is still very incomplete, but if there's an issue you'd like to see addressed sooner rather than later, let me(/us) know.
 
-Before you contribute though read the contributing guide here: [Contributing.md](https://github.com/peterokwara/evaluate-news-nlp/blob/master/CONTRIBUTING.md)
+Before you contribute though read the contributing guide here: [Contributing.md](https://github.com/peterokwara/StarNotary2.0/blob/master/CONTRIBUTING.md)
 
-For any concerns, please open an [issue](https://github.com/peterokwara/evaluate-news-nlp/issues), or JUST, [fork the project and send a pull request](https://github.com/peterokwara/evaluate-news-nlp/pulls).
+For any concerns, please open an [issue](https://github.com/peterokwara/StarNotary2.0/issues), or JUST, [fork the project and send a pull request](https://github.com/peterokwara/StarNotary2.0/pulls).
 
 <hr>
 
 ### License
 
-- see [LICENSE](https://github.com/peterokwara/evaluate-news-nlp/blob/master/LICENSE) file
+- see [LICENSE](https://github.com/peterokwara/StarNotary2.0/blob/master/LICENSE) file
 
 ### Versions
 
@@ -155,4 +129,4 @@ If you have found any bugs, or have any feedback or questions and or want to pos
 
 <br>
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/peterokwara/evaluate-news-nlp/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/peterokwara/StarNotary2.0/blob/master/LICENSE)
