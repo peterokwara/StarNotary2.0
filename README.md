@@ -34,7 +34,7 @@ This project uses: - HTML - CSS - SCSS - JS - NodeJS - Webpack - Babel - Truffle
 - OpenZeppelin library version `2.3.0`
 - ERC-721 Token Name `Nyota`
 - ERC-721 Token Symbol `NYT`
-- Token Address `0xcf8c5BE8643d027DEf8C52F887c22954Ad7758D2`, to view on block explorer, see [here](https://rinkeby.etherscan.io/address/0xcf8c5BE8643d027DEf8C52F887c22954Ad7758D2)
+- Token Address `0x9e4cf570F45425C59f3d0Eb84D9E48E53A6E9E9C`, to view on block explorer, see [here](https://rinkeby.etherscan.io/address/0x9e4cf570F45425C59f3d0Eb84D9E48E53A6E9E9C)
 
 
 #### Running the project
